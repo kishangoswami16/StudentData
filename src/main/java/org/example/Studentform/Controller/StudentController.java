@@ -38,4 +38,17 @@ public class StudentController {
         Student updateStudent = studentService.updateStudent(id,student);
         return ResponseEntity.ok(updateStudent);
     }
-}
+
+    @GetMapping("/search")
+    public ResponseEntity<Student> searchStudent(
+            @RequestParam(required = false) Long id,
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) String surName,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) Integer enrollment,
+            @RequestParam(required = false) Long phone
+    ){
+        return ResponseEntity.ok(studentService.findStudent(id,firstName,lastName,surName,enrollment,email,phone));
+    }
+    }
