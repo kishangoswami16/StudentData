@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -38,8 +39,8 @@ public class StudentService {
                                (lastName == null || std.getLastName().equals(lastName)) &&
                                (surName == null || std.getSurName().equals(surName)) &&
                                (enrollment == null || std.getEnrollment().equals(enrollment)) &&
-                               (email == null || std.getEmail().equals(email)) &&
-                               (phone == null || std.getPhone().equals(phone)))
+                               (email == null || Objects.equals(std.getEmail(), email)) &&
+                               (phone == null || Objects.equals(std.getPhone(), phone)))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No matching employee found with given criteria."));
     }
