@@ -1,6 +1,5 @@
 package org.example.Studentform.Service;
 
-
 import org.example.Studentform.Model.Student;
 import org.example.Studentform.Model.Teacher;
 import org.example.Studentform.Repository.StudentRepo;

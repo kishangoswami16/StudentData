@@ -4,14 +4,11 @@ import jakarta.persistence.*;
 
 import lombok.Data;
 
-
 @Entity
 @Table(name="Student")
 
 @Data
-
 public class Student {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,5 +21,6 @@ public class Student {
     private Long phone;
     private String email;
 
-
+    private String imagePath;
+    private static final long MAX_FILE_SIZE = 5 * 1024 * 1024;
 }
